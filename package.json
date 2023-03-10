@@ -1,7 +1,28 @@
 {
-  "name": "my-storybook",
+  "name": "raulrobi-my-storybook-components",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "main": "/dist/index.js",
+  "homepage": "https://github.com/raulrobi2018/sb-components",
+  "repository": {
+    "url": "https://github.com/raulrobi2018/sb-components",
+    "type": "git"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "typescript": ">=4.0.0"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
     "@storybook/addon-postcss": "^2.0.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -12,16 +33,18 @@
     "@types/react-dom": "^18.0.11",
     "css-loader": "^6.7.3",
     "postcss": "^8.4.21",
-    "react": "^18.2.0",
+    "react": ">=16",
     "react-dom": "^18.2.0",
-    "typescript": "^4.9.5",
+    "typescript": ">=4.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build": "build-storybook",
+    "build": "yarn clean && tsc && yarn copy-files",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +75,17 @@
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/react": "^12.1.2",
-    "babel-loader": "^8.3.0"
-  }
+    "babel-loader": "^8.3.0",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^4.4.0",
+    "semantic-release": "^20.1.1"
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+]
 }
