@@ -7,7 +7,7 @@
   "main": "/dist/index.js",
   "homepage": "https://github.com/raulrobi2018/sb-components",
   "repository": {
-    "url": "https://github.com/raulrobi2018/sb-components",
+    "url": "https://github.com/raulrobi2018/sb-components.git",
     "type": "git"
   },
   "peerDependencies": {
